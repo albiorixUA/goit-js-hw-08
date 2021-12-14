@@ -11,7 +11,6 @@ populateFormMessage();
 
 function onFormText(e) {
   formData[e.target.name] = e.target.value;
-
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
@@ -20,6 +19,8 @@ function populateFormMessage() {
   if (savedMessage) {
     refs.form[0].value = Object.values(savedMessage)[0];
     refs.form[1].value = Object.values(savedMessage)[1];
+    formData.email = refs.form[0].value;
+    formData.message = refs.form[1].value;
   }
 }
 
