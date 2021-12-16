@@ -17,10 +17,9 @@ function onFormText(e) {
 function populateFormMessage() {
   const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (savedMessage) {
-    refs.form[0].value = Object.values(savedMessage)[0];
-    refs.form[1].value = Object.values(savedMessage)[1];
-    formData.email = refs.form[0].value;
-    formData.message = refs.form[1].value;
+    const { email, message } = JSON.parse(savedMessage);
+    formData.email = email;
+    formData.message = message;
   }
 }
 
